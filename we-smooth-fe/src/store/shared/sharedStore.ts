@@ -4,6 +4,9 @@ import { useDispatch, useSelector, useStore } from 'react-redux'
 
 const sharedStore = configureStore({
     reducer: {
+        /**
+         * The Shared State of the application - values that should be visible across the whole or most of the application.
+         */
         shared: sharedReducer,
     },
 })
