@@ -11,7 +11,7 @@ export const PocBlueprintsPage = () => {
         })
             ?.then((response) => response.json())
             .then((data) => setBlueprints(JSON.stringify(data)))
-    })
+    }, [])
 
     return <p>{blueprints}</p>
 }

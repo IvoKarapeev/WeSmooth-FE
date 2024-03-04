@@ -19,7 +19,7 @@ const AuthenticationContext = (props: AuthContextProps) => {
         getAccessTokenSilently().then((token) => {
             sharedDispatch(setAccessToken(token))
         })
-    })
+    }, [])
 
     return <>{props.children}</>
 }
