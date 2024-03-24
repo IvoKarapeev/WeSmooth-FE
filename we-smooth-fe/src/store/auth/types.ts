@@ -1,6 +1,6 @@
 import { User } from '@auth0/auth0-react'
 
-export type SharedSliceState = {
+export type AuthSliceState = {
     /**
      * The User object retrieved during sign-in via Auth0.
      */

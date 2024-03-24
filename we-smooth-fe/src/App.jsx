@@ -1,19 +1,19 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { useSharedSelector } from './store/shared/sharedStore'
+import { useAuthSelector } from './store/auth/authStore'
 import { PocBlueprintsPage } from './pages/poc-blueprints-api/pocBlueprintsPage'
-import { setAccessToken, setUser } from './store/shared/sharedSlice'
-import { useSharedDispatch } from './store/shared/sharedStore'
+import { setAccessToken, setUser } from './store/auth/authSlice'
+import { useAuthDispatch } from './store/auth/authStore'
 
 function App() {
     const { logout } = useAuth0()
-    const user = useSharedSelector((state) => state.shared.user)
-    const accessToken = useSharedSelector((state) => state.shared.accessToken)
+    const user = useAuthSelector((state) => state.shared.user)
+    const accessToken = useAuthSelector((state) => state.shared.accessToken)
 
-    const sharedDispatch = useSharedDispatch()
+    const authDispatch = useAuthDispatch()
 
     const handleLogout = () => {
-        sharedDispatch(setUser(undefined))
-        sharedDispatch(setAccessToken(undefined))
+        authDispatch(setUser(undefined))
+        authDispatch(setAccessToken(undefined))
         logout()
     }
 

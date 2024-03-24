@@ -1,4 +1,4 @@
-import sharedStore from '../../store/shared/sharedStore'
+import authStore from '../../store/auth/authStore'
 
 /**
  * Calls an URL.
@@ -22,7 +22,7 @@ export const callSecuredBackendApi = (
     url: string,
     requestOptions: RequestInit
 ) => {
-    const { accessToken } = sharedStore.getState().shared
+    const { accessToken } = authStore.getState().shared
     if (accessToken) {
         requestOptions.headers = {
             ...requestOptions.headers,

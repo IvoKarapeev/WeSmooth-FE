@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { SharedSliceState } from './types'
+import { AuthSliceState } from './types'
 import { User } from '@auth0/auth0-react'
 
-const initialState: SharedSliceState = {
+const initialState: AuthSliceState = {
     user: undefined,
     accessToken: undefined,
 }
 
-export const sharedSlice = createSlice({
-    name: 'shared',
+export const authSlice = createSlice({
+    name: 'auth',
     initialState,
     reducers: {
         setUser(state, data: PayloadAction<User | undefined>) {
@@ -20,6 +20,6 @@ export const sharedSlice = createSlice({
     },
 })
 
-export const { setUser, setAccessToken } = sharedSlice.actions
+export const { setUser, setAccessToken } = authSlice.actions
 
-export default sharedSlice.reducer
+export default authSlice.reducer
