@@ -7,6 +7,10 @@ import authStore from '../../store/auth/authStore'
  * @returns Promise<Response> as the standard fetch function.
  */
 export const callBackendApi = (url: string, requestOptions: RequestInit) => {
+    requestOptions.headers = {
+        ...requestOptions.headers,
+        'Content-Type': 'application/json',
+    }
     return fetch(url, requestOptions)
 }
 
@@ -22,11 +26,12 @@ export const callSecuredBackendApi = (
     url: string,
     requestOptions: RequestInit
 ) => {
-    const { accessToken } = authStore.getState().shared
+    const { accessToken } = authStore.getState().auth
     if (accessToken) {
         requestOptions.headers = {
             ...requestOptions.headers,
-            Authorization: 'Bearer ' + accessToken,
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
         }
         return fetch(url, requestOptions)
     }

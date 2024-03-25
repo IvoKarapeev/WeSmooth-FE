@@ -1,30 +1,24 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import { useAuthSelector } from './store/auth/authStore'
-import { PocBlueprintsPage } from './pages/poc-blueprints-api/pocBlueprintsPage'
-import { setAccessToken, setUser } from './store/auth/authSlice'
-import { useAuthDispatch } from './store/auth/authStore'
+import { useAuthSelector, useAuthDispatch } from './store/auth/authStore'
+import { setAccessToken } from './store/auth/authSlice'
 
 function App() {
-    const { logout } = useAuth0()
-    const user = useAuthSelector((state) => state.shared.user)
-    const accessToken = useAuthSelector((state) => state.shared.accessToken)
+    const accessToken = useAuthSelector((state) => state.auth.accessToken)
 
     const authDispatch = useAuthDispatch()
 
     const handleLogout = () => {
-        authDispatch(setUser(undefined))
         authDispatch(setAccessToken(undefined))
-        logout()
     }
 
     return (
         <div className="App">
-            {user && (
+            {accessToken && (
                 <>
-                    <p>Hello {user.name}! Welcome to WeSmooth!</p>
+                    <p>Welcome to WeSmooth!</p>
                     <p>Your access token is: {accessToken}</p>
-                    <button onClick={handleLogout}>Logout</button>
-                    <PocBlueprintsPage />
+                    <button type="button" onClick={handleLogout}>
+                        Logout
+                    </button>
                 </>
             )}
         </div>

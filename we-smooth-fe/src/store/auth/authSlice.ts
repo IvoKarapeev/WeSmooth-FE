@@ -1,25 +1,42 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AuthSliceState } from './types'
-import { User } from '@auth0/auth0-react'
+import { callBackendApi } from '../../services/backend-api/backendApi'
+import { USERS_OAUTH2 } from '../../services/backend-api/constants'
 
 const initialState: AuthSliceState = {
-    user: undefined,
     accessToken: undefined,
 }
+
+export const fetchJwt = createAsyncThunk(
+    'auth/fetchJwt',
+    async (user: { username: string; password: string }) => {
+        const result = await callBackendApi(USERS_OAUTH2, {
+            method: 'POST',
+            body: JSON.stringify(user),
+        })
+        const jwt = await result.text()
+        return jwt
+    }
+)
 
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setUser(state, data: PayloadAction<User | undefined>) {
-            state.user = data.payload
-        },
         setAccessToken(state, data: PayloadAction<string | undefined>) {
             state.accessToken = data.payload
         },
     },
+    extraReducers: (builder) => {
+        builder.addCase(
+            fetchJwt.fulfilled,
+            (state, data: PayloadAction<string | undefined>) => {
+                state.accessToken = data.payload
+            }
+        )
+    },
 })
 
-export const { setUser, setAccessToken } = authSlice.actions
+export const { setAccessToken } = authSlice.actions
 
 export default authSlice.reducer
