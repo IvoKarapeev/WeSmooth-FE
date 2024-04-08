@@ -1,0 +1,163 @@
+@import '../../styles/variables.scss';
+
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    flex-shrink: 0;
+    top: 65px;
+    z-index: 1;
+    height: calc(100vh - 65px);
+    width: 290px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: $gray-soft;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    transition: background 0.3s ease;
+
+    &.dark-mode {
+        background: $dark-navy-blue;
+    }
+
+    .title-wrapper {
+        padding: 20px 14px;
+
+        .title-text-shadow {
+            text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    .sections-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin: 0 auto;
+        margin-bottom: 27px;
+        width: 260px;
+
+        .section-item-container {
+            display: inline-flex;
+            padding: 3px 8px 3px 4px;
+            align-items: center;
+            gap: 8px;
+            border-radius: 12px;
+            width: 100%;
+            background: $light-pink;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+            transition: background 0.3s ease;
+
+            &.dark-mode {
+                background-color: $dark-pink;
+            }
+
+            &.open-options {
+                animation: animateBorderRadiusStart 0.3s ease-in-out forwards;
+            }
+
+            &.close-options {
+                animation: animateBorderRadiusEnd 0.3s ease-in-out forwards;
+            }
+        }
+
+        .section-item-icon {
+            cursor: pointer;
+            display: flex;
+        }
+
+        .section-item-options {
+            display: inline-flex;
+            flex-direction: column;
+            padding: 8px;
+            align-items: center;
+            gap: 4px;
+            border-radius: 8px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width: 100%;
+            background: $light-pink;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+            transition: background 0.3s ease;
+
+            &.dark-mode {
+                background-color: $dark-pink;
+            }
+        }
+
+
+        .rotate {
+            animation: rotateIcon 0.3s ease-in-out forwards;
+        }
+
+        .reverse-rotate {
+            animation: reverseRotateIcon 0.3s ease-in-out forwards;
+        }
+    }
+}
+
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes reverseRotateIcon {
+    from {
+        transform: rotate(90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+/* Animation for rotation section item icon */
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes reverseRotateIcon {
+    from {
+        transform: rotate(90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+/* Animation for changing border-radius of section-item */
+@keyframes animateBorderRadiusStart {
+    from {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+    to {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+
+@keyframes animateBorderRadiusEnd {
+    from {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    to {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+}

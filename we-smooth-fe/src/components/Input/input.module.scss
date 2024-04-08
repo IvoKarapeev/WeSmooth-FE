@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.sections-input {
+    border-radius: 8px;
+    border: 1px solid $arrow-color;
+    background: $color-white;
+    height: 40px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px rgba(135, 21, 228, 0.4);
+    }
+
+    &.dark-mode:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px rgba(152, 105, 190, 0.4);
+    }
+
+    &::placeholder {
+        color: $color-gray;
+        font-style: italic;
+    }
+}
