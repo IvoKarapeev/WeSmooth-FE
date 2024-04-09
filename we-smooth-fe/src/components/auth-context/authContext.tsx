@@ -1,5 +1,5 @@
 import { FunctionComponent, useMemo } from 'react'
-import { AuthState, useAuthSelector } from '../../store/auth/authStore'
+import { RootState, useAuthSelector } from '../../store/store'
 import { AuthContextProps } from './types'
 import Login from './login'
 
@@ -12,7 +12,7 @@ const AuthenticationContext: FunctionComponent<AuthContextProps> = ({
     children,
 }) => {
     const accessToken = useAuthSelector(
-        (state: AuthState) => state.auth.accessToken
+        (state: RootState) => state.auth.accessToken
     )
 
     const page = useMemo(() => {
@@ -20,6 +20,7 @@ const AuthenticationContext: FunctionComponent<AuthContextProps> = ({
             return children
         }
         return <Login />
+
     }, [accessToken, children])
 
     return page

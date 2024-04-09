@@ -1,5 +1,5 @@
 import { FunctionComponent, useCallback } from 'react'
-import { useAuthDispatch } from '../../store/auth/authStore'
+import { useAuthDispatch } from '../../store/store'
 import { fetchJwt } from '../../store/auth/authSlice'
 
 const Login: FunctionComponent = () => {

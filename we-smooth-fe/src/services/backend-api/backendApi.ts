@@ -1,4 +1,4 @@
-import authStore from '../../store/auth/authStore'
+import store from '../../store/store';
 
 /**
  * Calls an URL.
@@ -26,7 +26,7 @@ export const callSecuredBackendApi = (
     url: string,
     requestOptions: RequestInit
 ) => {
-    const { accessToken } = authStore.getState().auth
+    const { accessToken } = store.getState().auth
     if (accessToken) {
         requestOptions.headers = {
             ...requestOptions.headers,
