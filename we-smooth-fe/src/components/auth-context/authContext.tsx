@@ -3,6 +3,8 @@ import { RootState, useAuthSelector } from '../../store/store'
 import { AuthContextProps } from './types'
 import Login from './login'
 import Header from '../Header/Header'
+// import Home from '../../pages/Home/Home'
+// import Blueprint from '../../pages/Blueprint/Blueprint'
 
 /**
  * Wrapper component which reads the user data and access token information from Auth0
@@ -20,6 +22,9 @@ const AuthenticationContext: FunctionComponent<AuthContextProps> = ({
         if (accessToken) {
             return children
         }
+
+        // How to see demo pages:
+        // If you want to test the demo pages just replace the Login component with the demoPage you want to test. 
         return <Login />
 
     }, [accessToken, children])

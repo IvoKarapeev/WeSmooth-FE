@@ -1,0 +1,142 @@
+@import '../../styles/variables.scss';
+
+.main-content {
+    background: linear-gradient(#2D1A55, #6C52A4);
+    padding: 70px;
+
+    // &.light-mode {
+    //     // animation: fromDarkToLight 0.3s ease;
+    // }
+
+    &.dark-mode {
+        // animation: fromLightToDark 0.3s ease;
+        background: linear-gradient(#6C52A4, #2D1A55);
+    }
+
+    .title {
+        font-family: 'Montserrat';
+        font-size: 74px;
+        font-weight: bold;
+        color: $color-white;
+        margin: 0;
+        margin-top: 70px;
+    }
+
+    .subtitle {
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: 27px;
+        color: $color-white;
+        margin: 0;
+        margin-top: $spacing-xl;
+        margin-bottom: 168px;
+    }
+
+    .carousel-wrapper {
+        width: 900px;
+    }
+
+    .todo-icon {
+        position: absolute;
+        bottom: 5%;
+        right: 70px;
+    }
+
+    .lower-content-title {
+        font-family: Montserrat;
+        font-size: 46px;
+        font-weight: 400;
+        color: $color-white;
+        margin-top: 70px;
+        margin-bottom: 47px;
+        text-align: center;
+    }
+
+    .lower-content-wrapper {
+        display: flex;
+        margin-top: 100px;
+
+        .img-content-wrapper {
+            width: 70%;
+            height: 552px;
+        }
+
+        .link-section {
+            position: relative;
+            width: 30%;
+            margin-left: 100px;
+
+            .link-item-wrapper {
+                padding: $spacing-l;
+            }
+
+            .section-item-icon {
+                cursor: pointer;
+                transform: rotate(270deg);
+                transition: transform 0.3s ease;
+            }
+
+            .icon-rotate-down {
+                transform: rotate(360deg);
+            }
+
+
+            .item-description {
+                font-family: Montserrat;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 24px;
+                color: white;
+                margin: 0;
+            }
+
+            .descr-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+        }
+
+        .devider {
+            height: 3px;
+            background-color: $color-primary;
+        }
+
+    }
+
+}
+
+// @keyframes fromLightToDark {
+//     0% {
+//         // background: linear-gradient(#2D1A55, #6C52A4);
+//         opacity: 1;
+//     }
+
+//     50% {
+//         // background: linear-gradient(#2D1A55, #6C52A4);
+//         opacity: 0.8;
+//     }
+
+//     100% {
+//         // background: linear-gradient(#6C52A4, #2D1A55);
+//         opacity: 1;
+//     }
+// }
+
+// @keyframes fromDarkToLight {
+//     0% {
+//         // background: linear-gradient(#6C52A4, #2D1A55);
+//         opacity: 1;
+//     }
+
+//     50% {
+//         // background: linear-gradient(#6C52A4, #2D1A55);
+//         opacity: 0.8;
+//     }
+
+//     100% {
+//         // background: linear-gradient(#2D1A55, #6C52A4);
+//         opacity: 1;
+//     }
+// }
