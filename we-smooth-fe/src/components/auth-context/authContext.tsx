@@ -2,6 +2,7 @@ import { FunctionComponent, useMemo } from 'react'
 import { RootState, useAuthSelector } from '../../store/store'
 import { AuthContextProps } from './types'
 import Login from './login'
+import Header from '../Header/Header'
 
 /**
  * Wrapper component which reads the user data and access token information from Auth0
@@ -15,7 +16,7 @@ const AuthenticationContext: FunctionComponent<AuthContextProps> = ({
         (state: RootState) => state.auth.accessToken
     )
 
-    const page = useMemo(() => {
+    const pageContent = useMemo(() => {
         if (accessToken) {
             return children
         }
@@ -23,7 +24,10 @@ const AuthenticationContext: FunctionComponent<AuthContextProps> = ({
 
     }, [accessToken, children])
 
-    return page
+    return <>
+        <Header logo='none' userImg='none' links={[{ title: 'Home', href: '/' }, { title: 'Login', href: '/login' }, { title: 'Register', href: '/register' }]} />
+        {pageContent}
+    </>
 }
 
 export default AuthenticationContext

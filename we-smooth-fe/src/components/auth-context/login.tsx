@@ -20,7 +20,7 @@ const Login: FunctionComponent = () => {
     }, [])
 
     return (
-        <>
+        <div style={{ position: 'absolute', top: '65px' }}>
             <label htmlFor="input-username">
                 Username
                 <input id="input-username" title="Username" />
@@ -32,7 +32,7 @@ const Login: FunctionComponent = () => {
             <button type="button" onClick={login}>
                 Login
             </button>
-        </>
+        </div>
     )
 }
 

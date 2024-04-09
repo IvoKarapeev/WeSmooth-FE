@@ -1,0 +1,82 @@
+@import '../../styles/variables.scss';
+
+.carousel {
+    background-color: rgba(45, 26, 85, 0.25);
+    position: relative;
+    border: 6px solid $color-primary;
+    border-radius: 18px;
+    width: 100%;
+    padding: 26px 12px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    .prevButton,
+    .nextButton {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        z-index: 10;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        svg {
+            path {
+                transition: opacity 0.3s ease;
+            }
+        }
+    }
+
+    .prevButton {
+        left: 0;
+    }
+
+    .nextButton {
+        right: 0;
+    }
+
+    .disabled {
+        svg {
+            cursor: not-allowed;
+
+            path {
+                opacity: 0.3;
+            }
+        }
+    }
+
+    .title-wrapper {
+        max-width: 80%;
+        margin-bottom: 42px;
+    }
+
+    .carouselContainer {
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carouselSlide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        width: 100%;
+        margin-right: 10px;
+        justify-content: center;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .btnGroup {
+        display: flex;
+    }
+}

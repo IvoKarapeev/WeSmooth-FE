@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+
+.blueprint-item {
+    position: relative;
+    cursor: pointer;
+    width: 78%;
+    min-height: 73px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: $light-pink;
+    transition: background 0.3s ease;
+    padding: 14px;
+
+    &.dark-mode {
+        background: $dark-pink;
+    }
+
+    h3 {
+        margin-bottom: $spacing-xs;
+        transition: color 0.3s ease;
+    }
+
+    p {
+        transition: color 0.3s ease;
+    }
+
+    .arrow {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: $color-black;
+
+        &.first-line {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            background: $arrow-color;
+            height: 1px;
+            cursor: default;
+        }
+
+        &.second-line {
+            position: absolute;
+            width: 1px;
+            top: 50%;
+            background: $arrow-color;
+            cursor: default;
+        }
+
+        &.third-line {
+            cursor: default;
+            position: absolute;
+            width: 50.001px;
+            height: 1px;
+            background: $arrow-color;
+        }
+
+        &.left-arrow {
+            left: -50px;
+        }
+
+        &.right-arrow {
+            right: -50px;
+        }
+
+    }
+}
