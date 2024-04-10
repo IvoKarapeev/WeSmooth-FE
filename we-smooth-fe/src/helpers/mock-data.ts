@@ -25,8 +25,10 @@ interface LinkSectionItem {
 
 interface CarouselItem {
     title: string,
-    leftLinkTitle?: string, leftLink: string,
-    rightLinkTitle?: string, rightLink: string
+    leftLinkTitle?: string,
+    leftLink?: string,
+    rightLinkTitle?: string,
+    rightLink?: string
 }
 
 // Important: We would need ID for the functionallity of clicking on item.
