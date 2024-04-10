@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useSelector } from 'react-redux';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Carousel from '../../components/Carousel/Carousel';
@@ -24,7 +24,7 @@ const Home = () => {
     const secondTextY = useTransform(scrollY, [200, 300, 400, 600], [350, 230, 100, 1]);
     const textOpacity2 = useTransform(scrollY, [400, 500, 600], [0, 0.5, 1]);
 
-    const handleClickSectionItem = (event, index) => {
+    const handleClickSectionItem = useCallback((event, index) => {
         event.stopPropagation();
 
         setSectionData(prevState => {
@@ -38,7 +38,7 @@ const Home = () => {
 
             return updatedItems;
         });
-    };
+    }, [setSectionData]);
 
     return (
         <main className={`${styles['main-content']} ${theme === 'dark' ? styles['dark-mode'] : styles['light-mode']}`}>

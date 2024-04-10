@@ -15,17 +15,14 @@ const Blueprint = () => {
 
     useEffect(() => {
         setSectionItems(mockDataSectionsItems);
-    }, []);
-
-    useEffect(() => {
         setBlueprintData(mockBlueprintItems);
     }, []);
 
-    const handleTabClick = useMemo(() => {
+    const handleTabClick = () => {
         return (tabNumber) => {
             setActiveTab(tabNumber);
         }
-    });
+    };
 
     // For test purposes
     const onAddItem = () => {
@@ -34,7 +31,7 @@ const Blueprint = () => {
         });
     };
 
-    const handleClickSectionItem = useMemo(() => {
+    const handleClickSectionItem = () => {
         return (index) => {
             setSectionItems(prevState => {
                 const updatedItems = [...prevState];
@@ -48,7 +45,7 @@ const Blueprint = () => {
                 return updatedItems;
             });
         }
-    });
+    };
 
     return (
         <div>
