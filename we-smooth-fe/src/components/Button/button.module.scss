@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+.buttonBase {
+    padding: 7px 14px;
+    border-radius: 12px;
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.primary {
+    background: $color-primary;
+    border: 2px solid $color-trasnparent;
+    color: black;
+
+    &:hover {
+        background: darken($color-primary, 10%);
+    }
+}
+
+.secondary {
+    background: $color-trasnparent;
+    border: 2px solid $color-primary;
+    color: white;
+
+    &:hover {
+        background: $color-primary;
+        color: black;
+    }
+}

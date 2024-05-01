@@ -1,0 +1,98 @@
+@import '../../styles/variables.scss';
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .tabs-container {
+        position: fixed;
+        z-index: 2;
+        top: 65px;
+        left: 290px;
+        width: calc(100% - 290px);
+
+        .tabs-top {
+            width: 100%;
+            height: 55px;
+            border-bottom: 1px solid $arrow-color;
+            background: $color-white;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s ease;
+
+            &.dark-mode {
+                border-bottom: 1px solid $color-black;
+                background: #291F3E;
+            }
+
+            .save-icon {
+                cursor: pointer;
+                margin-left: 14px;
+                margin-right: 8px;
+            }
+
+            .run-icon {
+                cursor: pointer;
+                margin-left: 24px;
+                margin-right: 8px;
+            }
+        }
+
+        .tabs-bottom {
+            display: flex;
+            height: 55px;
+            border-bottom: 1px solid $arrow-color;
+            background: $color-white;
+            transition: background 0.3s ease;
+
+            &.dark-mode {
+                border-bottom: 1px solid $color-black;
+                background: #291F3E;
+            }
+
+            .tab-bottom-el {
+                display: flex;
+                align-items: center;
+                padding: 16px;
+                border-right: 1px solid $arrow-color;
+                cursor: pointer;
+
+                &.dark-mode {
+                    border-right: 1px solid $color-black;
+                }
+
+                &.active {
+                    background: #CEBEE8;
+                    transition: background 0.3s ease;
+
+                    &.dark-mode {
+                        background: #392D51;
+                    }
+                }
+            }
+        }
+    }
+
+    .blueprints-container {
+        position: relative;
+        // Top position -> height of Header + Tabs
+        top: 175px;
+        // Left position -> width of Sidebar
+        left: 290px;
+        // Width -> 100% - Sidebar width
+        width: calc(100% - 290px);
+        min-height: calc(100vh - 175px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 42px;
+        padding: 42px;
+        transition: background 0.3s ease;
+
+        &.dark-mode {
+            background: #2E263A;
+        }
+    }
+}

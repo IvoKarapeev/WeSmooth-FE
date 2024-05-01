@@ -1,5 +1,6 @@
-import { useAuthSelector, useAuthDispatch } from './store/auth/authStore'
+import { useAuthSelector, useAuthDispatch } from './store/store'
 import { setAccessToken } from './store/auth/authSlice'
+import './styles/main.scss';
 
 function App() {
     const accessToken = useAuthSelector((state) => state.auth.accessToken)

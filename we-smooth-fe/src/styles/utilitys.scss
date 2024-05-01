@@ -1,0 +1,90 @@
+.d-none {
+    display: none !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.flex-direction-column {
+    flex-direction: column !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-around {
+    justify-content: space-around !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.align-items-center {
+    align-self: center !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.text-color-black {
+    color: $color-black !important;
+}
+
+.text-color-white {
+    color: $color-white !important;
+}
+
+.text-color-red-pastel {
+    color: $red-pastel !important;
+}
+
+.text-color-red-pastel-dark {
+    color: $red-pastel-dark !important;
+}
+
+.text-shadow {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.font-weight-normal {
+    font-weight: normal !important;
+}
+
+.width-full {
+    width: 100% !important;
+}
+
+$spacings: (
+    'xs': $spacing-xs,
+    's': $spacing-s,
+    'm': $spacing-m,
+    'l': $spacing-l,
+    'xl': $spacing-xl,
+);
+
+// Iterate over each size and direction to generate utility classes
+@each $size, $value in $spacings {
+    .mt-#{$size} {
+        margin-top: $value !important;
+    }
+
+    .mb-#{$size} {
+        margin-bottom: $value !important;
+    }
+
+    .ml-#{$size} {
+        margin-left: $value !important;
+    }
+
+    .mr-#{$size} {
+        margin-right: $value !important;
+    }
+}
