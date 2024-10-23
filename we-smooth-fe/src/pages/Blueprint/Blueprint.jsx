@@ -18,11 +18,9 @@ const Blueprint = () => {
         setBlueprintData(mockBlueprintItems);
     }, []);
 
-    const handleTabClick = () => {
-        return (tabNumber) => {
-            setActiveTab(tabNumber);
-        }
-    };
+    const handleTabClick = (tabNumber) => {
+        setActiveTab(tabNumber);
+    }
 
     // For test purposes
     const onAddItem = () => {
@@ -31,21 +29,20 @@ const Blueprint = () => {
         });
     };
 
-    const handleClickSectionItem = () => {
-        return (index) => {
-            setSectionItems(prevState => {
-                const updatedItems = [...prevState];
+    const handleClickSectionItem = (index) => {
+        setSectionItems(prevState => {
+            const updatedItems = [...prevState];
 
-                updatedItems[index] = {
-                    ...updatedItems[index],
-                    areOptionsOpen: !updatedItems[index].areOptionsOpen,
-                    hasBeenClicked: true
-                };
+            updatedItems[index] = {
+                ...updatedItems[index],
+                areOptionsOpen: !updatedItems[index].areOptionsOpen,
+                hasBeenClicked: true
+            };
 
-                return updatedItems;
-            });
-        }
-    };
+            return updatedItems;
+        });
+
+    }
 
     return (
         <div>
