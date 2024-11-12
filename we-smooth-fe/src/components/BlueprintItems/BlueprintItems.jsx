@@ -6,6 +6,7 @@ import Text from '../Text/Text';
 
 const BlueprintsItems = memo(({ items, theme }) => {
     const [itemsHeight, setItemHeights] = useState([]);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
         // Calculate the heights of the next items
@@ -20,10 +21,13 @@ const BlueprintsItems = memo(({ items, theme }) => {
         setItemHeights(heights);
     }, [items]);
 
+    useEffect(() => {
+        setIsDarkMode(theme === 'dark');
+    }, [theme]);
+
     return (
         <>
             {items.map((blueprintItem, i) => {
-                const isDarkMode = theme === 'dark';
                 const isLastItem = i === items.length - 1;
                 const isEvenIndex = i % 2 === 0;
 

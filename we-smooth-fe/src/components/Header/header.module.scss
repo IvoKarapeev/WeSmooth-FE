@@ -29,28 +29,26 @@
             flex-direction: column;
             align-items: center;
             height: 100%;
-        }
 
-        .logo {
-            width: 80%;
-            height: 100%;
-        }
+            .logo {
+                width: 80%;
+                height: 100%;
+            }
 
-        .logo-text {
-            margin: 0;
-            color: $color-white;
-            text-align: center;
-            font-family: "Monotype Corsiva";
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
+            .logo-text {
+                margin: 0;
+                color: $color-white;
+                text-align: center;
+                font-family: "Monotype Corsiva";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
         }
-
 
         .header-links {
             display: flex;
-            height: fit-content;
             align-self: center;
             margin-left: 24px;
             gap: 16px;
@@ -63,13 +61,6 @@
         align-items: center;
         justify-content: center;
 
-        .toggle-wrapper {
-            position: relative;
-            width: 60px;
-            height: 30px;
-            margin-right: 12px;
-        }
-
         .avatar {
             width: 45px;
             height: 45px;
@@ -77,6 +68,7 @@
             fill: $color-white;
             background-color: $color-white;
             border-radius: 50%;
+            margin-left: 14px;
         }
 
         .avatar-image {

@@ -9,16 +9,16 @@
         position: fixed;
         z-index: 2;
         top: 65px;
-        left: 290px;
-        width: calc(100% - 290px);
+        right: 0;
+        width: 71%;
 
         .tabs-top {
+            display: flex;
+            align-items: center;
             width: 100%;
             height: 55px;
             border-bottom: 1px solid $arrow-color;
             background: $color-white;
-            display: flex;
-            align-items: center;
             transition: background 0.3s ease;
 
             &.dark-mode {
@@ -28,7 +28,7 @@
 
             .save-icon {
                 cursor: pointer;
-                margin-left: 14px;
+                margin-left: 12px;
                 margin-right: 8px;
             }
 
@@ -79,10 +79,10 @@
         // Top position -> height of Header + Tabs
         top: 175px;
         // Left position -> width of Sidebar
-        left: 290px;
+        left: 29%;
         // Width -> 100% - Sidebar width
-        width: calc(100% - 290px);
-        min-height: calc(100vh - 175px);
+        width: calc(100% - 29%);
+        min-height: calc(100% - 175px);
         display: flex;
         flex-direction: column;
         align-items: center;

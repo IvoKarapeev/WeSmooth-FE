@@ -104,10 +104,11 @@ const Home = () => {
                                             <path d="M31.5 15L21.25 25.25L11 15" stroke="#C1B6DD" strokeWidth="3" />
                                         </svg>
                                     </div>
+
                                     <AnimatePresence>
                                         {item.isOpen &&
                                             <motion.div
-                                                className={styles['descr-wrapper']}
+                                                className={`${styles['descr-wrapper']} mt-s`}
                                                 style={{ overflow: 'hidden' }}
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: 'auto', opacity: 1 }}
@@ -125,7 +126,7 @@ const Home = () => {
                                         }
                                     </AnimatePresence>
                                 </div>
-                                <hr className={styles.devider} />
+                                {index < sectionData.length - 1 && <hr className={styles.devider} />}
                             </div>
                         )
                     })}
