@@ -3,6 +3,8 @@ import classNames from 'classnames';
 
 import styles from './blueprintItems.module.scss';
 import Text from '../Text/Text';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 const BlueprintsItems = memo(({ items, theme }) => {
     const [itemsHeight, setItemHeights] = useState([]);
@@ -88,24 +90,12 @@ const BlueprintsItems = memo(({ items, theme }) => {
                             className={arrowThirdsecondLineClasses}
                         />
                         {!isEvenIndex && (
-                            <div
-                                className={i === items.length - 1 ? 'd-none' : ''}
-                                style={{ position: 'absolute', right: -15, bottom: `-${itemsHeight[i + 1] / 2 + 42 + 15}px` }}
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M9.23047 11.8079L13.6879 8.09346C14.2089 7.65924 15 8.02976 15 8.70803V15.292C15 15.9702 14.2089 16.3408 13.6879 15.9065L9.23047 12.1921C9.11053 12.0921 9.11053 11.9079 9.23047 11.8079Z" fill="#726A86" />
-                                </svg>
-                            </div>
+                            <FontAwesomeIcon icon={faCaretLeft} className={i === items.length - 1 ? 'd-none' : ''}
+                                style={{ color: '#726A86', position: 'absolute', bottom: `-${itemsHeight[i + 1] / 2 + 42 + 8}px`, right: -8 }} />
                         )}
                         {isEvenIndex && (
-                            <div
-                                className={i === items.length - 1 ? 'd-none' : ''}
-                                style={{ position: 'absolute', bottom: `-${itemsHeight[i + 1] / 2 + 42 + 15}px`, left: -15 }}
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M14.7695 11.8079L10.3121 8.09346C9.79109 7.65924 9 8.02976 9 8.70803V15.292C9 15.9702 9.79109 16.3408 10.3121 15.9065L14.7695 12.1921C14.8895 12.0921 14.8895 11.9079 14.7695 11.8079Z" fill="#726A86" />
-                                </svg>
-                            </div>
+                            <FontAwesomeIcon icon={faCaretRight} className={i === items.length - 1 ? 'd-none' : ''}
+                                style={{ color: '#726A86', position: 'absolute', bottom: `-${itemsHeight[i + 1] / 2 + 42 + 8}px`, left: -8 }} />
                         )}
                     </div>
                 );

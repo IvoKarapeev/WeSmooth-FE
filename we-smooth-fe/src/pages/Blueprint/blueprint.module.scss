@@ -30,12 +30,23 @@
                 cursor: pointer;
                 margin-left: 12px;
                 margin-right: 8px;
+                color: #554b60;
+
+                &.dark-theme-icon {
+                    color: #F9F5F5;
+                }
             }
+
 
             .run-icon {
                 cursor: pointer;
                 margin-left: 24px;
                 margin-right: 8px;
+                color: #554b60;
+
+                &.dark-theme-icon {
+                    color: #F9F5F5;
+                }
             }
         }
 

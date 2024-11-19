@@ -22,7 +22,12 @@
         border: none;
         z-index: 1;
 
-        &:hover {
+        .icon {
+            color: $color-primary;
+            font-size: 45px;
+        }
+
+        &:hover:not(.disabled) {
             cursor: pointer;
         }
 
@@ -34,15 +39,15 @@
     }
 
     .prevButton {
-        left: 0;
+        left: 2.5%;
     }
 
     .nextButton {
-        right: 0;
+        right: 2.5%;
     }
 
     .disabled {
-        svg {
+        .icon {
             cursor: not-allowed;
 
             path {
@@ -53,7 +58,6 @@
 
     .title-wrapper {
         max-width: 80%;
-        margin-bottom: 42px;
     }
 
     .carouselContainer {
@@ -68,12 +72,8 @@
         align-items: center;
         flex-shrink: 0;
         width: 100%;
-        margin-right: 10px;
         justify-content: center;
 
-        &:last-child {
-            margin-right: 0;
-        }
     }
 
     .btnGroup {

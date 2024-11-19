@@ -62,54 +62,6 @@
             width: 70%;
             height: 100%;
         }
-
-        .link-section {
-            position: relative;
-            width: 30%;
-            margin-left: 100px;
-            background-color: #473964;
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid white;
-
-            .link-item-wrapper {
-                padding: $spacing-m;
-
-                .section-item-icon {
-                    cursor: pointer;
-                    transform: rotate(270deg);
-                    transition: transform 0.3s ease;
-                }
-
-                .icon-rotate-down {
-                    transform: rotate(360deg);
-                }
-
-
-                .item-description {
-                    font-family: Montserrat;
-                    font-weight: 500;
-                    font-size: 20px;
-                    line-height: 24px;
-                    color: white;
-                    margin: 0;
-                }
-
-                .descr-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 16px;
-                }
-            }
-
-        }
-
-        .devider {
-            height: 3px;
-            background-color: $color-primary;
-        }
-
     }
 
 }

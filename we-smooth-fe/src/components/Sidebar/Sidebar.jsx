@@ -5,6 +5,8 @@ import classNames from 'classnames'; // Import classnames
 import styles from './sidebar.module.scss';
 import Text from '../Text/Text';
 import Input from '../Input/Input';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = ({ sectionItems, handleClickSectionItem }) => {
     const theme = useSelector((state) => state.theme);
@@ -37,9 +39,7 @@ const Sidebar = ({ sectionItems, handleClickSectionItem }) => {
                         <div className='width-full' onClick={() => handleClickSectionItem(i)} key={i}>
                             <div className={classNames(styles['section-item-container'], { [styles['open-options']]: item.areOptionsOpen, [styles['close-options']]: !item.areOptionsOpen && item.hasBeenClicked, [styles['dark-mode']]: theme === 'dark' })}>
                                 <div className={styles['section-item-icon']}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className={classNames({ [styles['rotate']]: item.areOptionsOpen, [styles['reverse-rotate']]: !item.areOptionsOpen && item.hasBeenClicked })}>
-                                        <path d="M9 6L15 12L9 18" stroke={theme === 'dark' ? "#C7C7C7" : "#33363F"} strokeWidth="2" />
-                                    </svg>
+                                    <FontAwesomeIcon style={{ color: theme === 'dark' ? "#C7C7C7" : "#33363F" }} icon={faChevronRight} className={classNames({ [styles['rotate']]: item.areOptionsOpen, [styles['reverse-rotate']]: !item.areOptionsOpen && item.hasBeenClicked, 'ml-xs': true })} />
                                 </div>
                                 <Text
                                     element={'h3'}
