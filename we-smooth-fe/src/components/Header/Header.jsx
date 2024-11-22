@@ -25,9 +25,7 @@ const Header = ({ logo, userImg, links }) => {
                 </div>
 
                 <div className={styles['header-right']}>
-                    <div className={styles['toggle-wrapper']}>
-                        <Toggle onToggleSwitch={() => dispatch(toggleTheme())} />
-                    </div>
+                    <Toggle onToggleSwitch={() => dispatch(toggleTheme())} />
                     <div className={styles.avatar}>
                         <img className={styles['avatar-image']} src={userImg} />
                     </div>

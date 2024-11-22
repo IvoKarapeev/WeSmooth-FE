@@ -1,17 +1,18 @@
 .toggle-switch {
     position: relative;
     width: 60px;
+    height: 30px;
 
     .label {
-        position: absolute;
+        position: relative;
+        display: inline-block;
         width: 100%;
-        height: 30px;
+        height: 100%;
         background-color: #28292c;
         border-radius: 30px;
         cursor: pointer;
 
         .input {
-            position: absolute;
             display: none;
         }
 

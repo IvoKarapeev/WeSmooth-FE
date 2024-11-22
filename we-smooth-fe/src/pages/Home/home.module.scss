@@ -30,10 +30,11 @@
         margin: 0;
         margin-top: $spacing-xl;
         margin-bottom: 168px;
+        width: 62%;
     }
 
     .carousel-wrapper {
-        width: 900px;
+        width: 62%;
     }
 
     .todo-icon {
@@ -54,55 +55,13 @@
 
     .lower-content-wrapper {
         display: flex;
+        align-items: center;
         margin-top: 100px;
 
         .img-content-wrapper {
             width: 70%;
-            height: 552px;
+            height: 100%;
         }
-
-        .link-section {
-            position: relative;
-            width: 30%;
-            margin-left: 100px;
-
-            .link-item-wrapper {
-                padding: $spacing-l;
-            }
-
-            .section-item-icon {
-                cursor: pointer;
-                transform: rotate(270deg);
-                transition: transform 0.3s ease;
-            }
-
-            .icon-rotate-down {
-                transform: rotate(360deg);
-            }
-
-
-            .item-description {
-                font-family: Montserrat;
-                font-weight: 500;
-                font-size: 20px;
-                line-height: 24px;
-                color: white;
-                margin: 0;
-            }
-
-            .descr-wrapper {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-        }
-
-        .devider {
-            height: 3px;
-            background-color: $color-primary;
-        }
-
     }
 
 }

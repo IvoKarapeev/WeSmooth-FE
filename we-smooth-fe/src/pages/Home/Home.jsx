@@ -1,20 +1,16 @@
-import { useState, useCallback } from 'react'
 import { useSelector } from 'react-redux';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Carousel from '../../components/Carousel/Carousel';
 import Button from '../../components/Button/Button';
 import ImageContent from '../../components/ImageContent/ImageContent';
-import Text from '../../components/Text/Text';
 import styles from './home.module.scss';
+import ExpandableSection from '../../components/ExpandableSection/ExpandableSection';
 // Image for test
 import img from './image_1.png';
 import { mockDataCarousel, mockDataLinkSection } from '../../helpers/mock-data';
 
 const Home = () => {
     const theme = useSelector((state) => state.theme);
-
-    const [sectionData, setSectionData] = useState(mockDataLinkSection);
-
     const { scrollY } = useScroll();
 
     const YText = useTransform(scrollY, [0, 200, 300, 400], [1, 100, 130, 140]);
@@ -24,22 +20,6 @@ const Home = () => {
     const secondTextY = useTransform(scrollY, [200, 300, 400, 600], [350, 230, 100, 1]);
     const textOpacity2 = useTransform(scrollY, [400, 500, 600], [0, 0.5, 1]);
 
-    const handleClickSectionItem = useCallback((event, index) => {
-        event.stopPropagation();
-
-        setSectionData(prevState => {
-            const updatedItems = [...prevState];
-
-            updatedItems[index] = {
-                ...updatedItems[index],
-                isOpen: !updatedItems[index].isOpen,
-                hasBeenClicked: true
-            };
-
-            return updatedItems;
-        });
-    }, [setSectionData]);
-
     return (
         <main className={`${styles['main-content']} ${theme === 'dark' ? styles['dark-mode'] : styles['light-mode']}`}>
             <motion.h1 className={styles.title} style={{ y: YText, scale: scaleText, opacity: textOpacity }}>We Smooth</motion.h1>
@@ -47,6 +27,7 @@ const Home = () => {
             <div className={styles['carousel-wrapper']}>
                 <Carousel items={mockDataCarousel} />
             </div>
+            {/* Don't have this icon for free, so we still use SVG here */}
             <svg className={styles['todo-icon']} width="269" height="371" viewBox="0 0 269 371" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_227_529)">
                     <path d="M261.06 8.412H8.20999V363.312H261.06V8.412Z" stroke="#C1B6DD" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round" />
@@ -91,45 +72,7 @@ const Home = () => {
                     <ImageContent image={img} />
                 </div>
 
-                <div className={styles['link-section']} >
-                    {sectionData.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                <div className={styles['link-item-wrapper']}>
-                                    <div className='d-flex justify-content-between align-items-center'>
-                                        <div className='cursor-pointer' onClick={(e) => handleClickSectionItem(e, index)}>
-                                            <Text classes={'text-color-white font-weight-normal'} styleType={'h1-styles'}>{item.title}</Text>
-                                        </div>
-                                        <svg onClick={(e) => handleClickSectionItem(e, index)} className={`${styles['section-item-icon']} ${item.hasBeenClicked && item.isOpen ? styles['icon-rotate-down'] : ''}`} width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M31.5 15L21.25 25.25L11 15" stroke="#C1B6DD" strokeWidth="3" />
-                                        </svg>
-                                    </div>
-                                    <AnimatePresence>
-                                        {item.isOpen &&
-                                            <motion.div
-                                                className={styles['descr-wrapper']}
-                                                style={{ overflow: 'hidden' }}
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: 'auto', opacity: 1 }}
-                                                exit={{ height: 0, opacity: 0 }}
-                                                transition={{ duration: 0.3 }}
-                                                key={'animation-item'}
-                                            >
-                                                <p
-                                                    className={styles['item-description']}
-                                                >
-                                                    {item.description}
-                                                </p>
-                                                {item.link && <Button to={item.link}>{item.linkTitle}</Button>}
-                                            </motion.div>
-                                        }
-                                    </AnimatePresence>
-                                </div>
-                                <hr className={styles.devider} />
-                            </div>
-                        )
-                    })}
-                </div>
+                <ExpandableSection sectionData={mockDataLinkSection} />
             </div>
         </main >
     )
